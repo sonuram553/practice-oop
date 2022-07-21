@@ -1,0 +1,21 @@
+{
+  "name": "practice-oop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon dist/index.js",
+    "start": "concurrently npm:start:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonuram553/practice-oop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonuram553/practice-oop/issues"
+  },
+  "homepage": "https://github.com/sonuram553/practice-oop#readme"
+}
