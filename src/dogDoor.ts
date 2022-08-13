@@ -1,17 +1,17 @@
 export class DogDoor {
   private _open: boolean = false;
 
-  open(): void {
+  open = (): void => {
     this._open = true;
     console.log("The dog door opens.");
-  }
+  };
 
-  close(): void {
+  close = (): void => {
     this._open = false;
     console.log("The dog door closes.");
-  }
+  };
 
-  isOpen(): boolean {
+  isOpen = (): boolean => {
     return this._open;
-  }
+  };
 }
