@@ -2,9 +2,10 @@ import { Bark } from "./bark";
 import { wait } from "./util";
 
 export class DogDoor {
-  private _open: boolean = false;
-
-  constructor(private allowedBarks: Bark[] = []) {}
+  constructor(
+    private _open: boolean = false,
+    private allowedBarks: Bark[] = []
+  ) {}
 
   open = (): void => {
     this._open = true;
@@ -23,5 +24,9 @@ export class DogDoor {
 
   getAllowedBarks = (): Bark[] => {
     return this.allowedBarks;
+  };
+
+  addAllowedBark = (bark: Bark) => {
+    this.allowedBarks.push(bark);
   };
 }
