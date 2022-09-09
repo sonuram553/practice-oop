@@ -1,6 +1,6 @@
 import { Builder, Type, Wood } from "./enums";
 import { Guitar } from "./guitar";
-import { GuitarSpec } from "./guitarSpec";
+import { GuitarSpec } from "./specs/guitarSpec";
 import { Inventory } from "./inventory";
 
 const inventory: Inventory = new Inventory();
@@ -19,4 +19,4 @@ const matchingGuitars: Guitar[] = inventory.search(whatErinLikes);
 
 // Loop through matchingGuitars and print
 
-function initializeInventory(inventory: Inventory): void {}
+function initializeInventory(inventory: Inventory) {}

@@ -1,26 +1,40 @@
 import { Guitar } from "./guitar";
-import { GuitarSpec } from "./guitarSpec";
+import { Instrument } from "./instrument";
+import { Mandolin } from "./mandolin";
+import { GuitarSpec } from "./specs/guitarSpec";
+import { InstrumentSpec } from "./specs/instrumentSpec";
+import { MandolinSpec } from "./specs/mandolinSpec";
 
 export class Inventory {
-  private guitars: Guitar[] = [];
+  private inventory: Instrument[] = [];
 
-  addGuitar(serialNumber: string, price: number, spec: GuitarSpec): void {
-    const guitar: Guitar = new Guitar(serialNumber, price, spec);
-    this.guitars.push(guitar);
-  }
+  addInstrument = (
+    serialNumber: string,
+    price: number,
+    spec: InstrumentSpec
+  ) => {
+    let instrument: Instrument | void;
 
-  getGuitar(serialNumber: string): Guitar | void {
-    for (const guitar of this.guitars) {
-      if (guitar.getSerialNumber() === serialNumber) return guitar;
+    if (spec instanceof GuitarSpec)
+      instrument = new Guitar(serialNumber, price, spec);
+    else if (spec instanceof MandolinSpec)
+      instrument = new Mandolin(serialNumber, price, spec);
+
+    if (instrument) this.inventory.push(instrument);
+  };
+
+  getInstrument(serialNumber: string): Instrument | void {
+    for (const instrument of this.inventory) {
+      if (instrument.getSerialNumber() === serialNumber) return instrument;
     }
   }
 
-  search(searchSpec: GuitarSpec): Guitar[] {
-    const result: Guitar[] = [];
+  search(spec: InstrumentSpec): Instrument[] {
+    const result: Instrument[] = [];
 
-    for (const guitar of this.guitars) {
-      const guitarSpec = guitar.getSpec();
-      if (guitarSpec.matches(searchSpec)) result.push(guitar);
+    for (const instrument of this.inventory) {
+      const instrumentSpec = instrument.getSpec();
+      if (instrumentSpec.matches(spec)) result.push(instrument);
     }
 
     return result;

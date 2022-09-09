@@ -18,3 +18,8 @@ export enum Wood {
   INDIAN_ROSEWOOD = "Indian Rosewood",
   ALDER = "Alder",
 }
+
+export enum Style {
+  A = "A",
+  F = "F",
+}
