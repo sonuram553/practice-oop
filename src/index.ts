@@ -1,1 +1,2 @@
-import "./dogDoorSimulator";
+// Runs requirements project
+// import "./dogDoorSimulator";
