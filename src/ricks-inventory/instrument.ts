@@ -1,4 +1,4 @@
-import { InstrumentSpec } from "./specs/instrumentSpec";
+import { InstrumentSpec } from "./instrumentSpec";
 
 export abstract class Instrument {
   constructor(
