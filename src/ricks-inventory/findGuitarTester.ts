@@ -1,21 +1,22 @@
-import { Builder, Type, Wood } from "./enums";
-import { Guitar } from "./guitar";
-import { GuitarSpec } from "./specs/guitarSpec";
+import { Builder, InstrumentType, Type, Wood } from "./enums";
+import { Instrument } from "./instrument";
+import { InstrumentSpec } from "./instrumentSpec";
 import { Inventory } from "./inventory";
 
 const inventory: Inventory = new Inventory();
 initializeInventory(inventory);
 
-const whatErinLikes: GuitarSpec = new GuitarSpec(
-  Builder.FENDER,
-  "Stratocastor",
-  Type.ELECTRIC,
-  12,
-  Wood.ALDER,
-  Wood.ALDER
-);
+const whatErinLikes: InstrumentSpec = new InstrumentSpec({
+  builder: Builder.FENDER,
+  model: "Stratocastor",
+  type: Type.ELECTRIC,
+  numStrings: 12,
+  backWood: Wood.ALDER,
+  topWood: Wood.ALDER,
+  instrumentType: InstrumentType.GUITAR,
+});
 
-const matchingGuitars: Guitar[] = inventory.search(whatErinLikes);
+const matchingGuitars: Instrument[] = inventory.search(whatErinLikes);
 
 // Loop through matchingGuitars and print
 

@@ -1,6 +1,6 @@
 type Properties = { [key: string]: any };
 
-export abstract class InstrumentSpec {
+export class InstrumentSpec {
   constructor(private properties: Properties = {}) {}
 
   getProperty(propertyName: string): any {

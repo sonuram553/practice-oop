@@ -1,6 +1,6 @@
 import { InstrumentSpec } from "./instrumentSpec";
 
-export abstract class Instrument {
+export class Instrument {
   constructor(
     private serialNumber: string,
     private price: number,
