@@ -10,9 +10,8 @@ const clientSpec = new InstrumentSpec({
   builder: Builder.GIBSON,
   backWood: Wood.MAPLE,
 });
-const matchingInstruments: Instrument[] = inventory.search(clientSpec);
 
-console.log(matchingInstruments);
+printMatchingInstruments(inventory.search(clientSpec));
 
 function initializeInventory(inventory: Inventory) {
   // Guitars
@@ -127,4 +126,30 @@ function initializeInventory(inventory: Inventory) {
       backWood: Wood.MAPLE,
     })
   );
+}
+
+function printMatchingInstruments(instruments: Instrument[]) {
+  if (instruments.length) {
+    console.log("You might like these instruments:");
+    for (const instrument of instruments) {
+      const spec = instrument.getSpec();
+      console.log(
+        `We have a ${spec.getProperty(
+          "instrumentType"
+        )} with the following properties:`
+      );
+
+      for (const propertyName in spec.getProperties()) {
+        if (propertyName === "instrumentType") continue;
+        console.log(`  ${propertyName}: ${spec.getProperty(propertyName)}`);
+      }
+
+      console.log(
+        `  You can have this ${spec.getProperty(
+          "instrumentType"
+        )} for $${instrument.getPrice()}`
+      );
+      console.log("---");
+    }
+  } else console.log("No instrument found!");
 }
