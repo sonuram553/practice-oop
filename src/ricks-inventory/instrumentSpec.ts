@@ -11,9 +11,11 @@ export class InstrumentSpec {
     return this.properties;
   }
 
-  matches(spec: InstrumentSpec): boolean {
-    for (const propertyName in this.properties) {
-      if (this.getProperty(propertyName) !== spec.getProperty(propertyName))
+  matches(otherSpec: InstrumentSpec): boolean {
+    for (const propertyName in otherSpec.getProperties()) {
+      if (
+        otherSpec.getProperty(propertyName) !== this.getProperty(propertyName)
+      )
         return false;
     }
 
