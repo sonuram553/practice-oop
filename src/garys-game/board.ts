@@ -25,4 +25,14 @@ export default class Board {
     const tile = this.getTile(x, y);
     tile.addUnit(unit);
   }
+
+  removeUnit(unit: Unit, x: number, y: number) {
+    const tile = this.getTile(x, y);
+    tile.removeUnit(unit);
+  }
+
+  removeUnits(x: number, y: number) {
+    const tile = this.getTile(x, y);
+    tile.removeUnits();
+  }
 }
