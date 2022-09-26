@@ -35,4 +35,8 @@ export default class Board {
     const tile = this.getTile(x, y);
     tile.removeUnits();
   }
+
+  getUnits(x: number, y: number) {
+    return this.getTile(x, y).getUnits();
+  }
 }

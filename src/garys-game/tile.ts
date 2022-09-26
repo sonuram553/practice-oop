@@ -4,4 +4,5 @@ export default class Tile {
   addUnit(unit: Unit) {}
   removeUnit(unit: Unit) {}
   removeUnits() {}
+  getUnits(){}
 }
