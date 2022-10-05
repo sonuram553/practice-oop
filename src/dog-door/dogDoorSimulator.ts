@@ -2,7 +2,7 @@ import { Bark } from "./bark";
 import { BarkRecognizer } from "./barkRecognizer";
 import { DogDoor } from "./dogDoor";
 import { Remote } from "./remote";
-import { wait } from "./util";
+import { wait } from "../util";
 
 (async function () {
   const door: DogDoor = new DogDoor();

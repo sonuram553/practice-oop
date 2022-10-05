@@ -2,7 +2,7 @@
 // import "./ricks-inventory/findInstrument";
 
 // Runs Test for Requirements Project
-// import "./dogDoorSimulator";
+import "./dog-door/dogDoorSimulator";
 
 // Runs Tests for Gary's Game System
-import "./garys-game/test";
+// import "./garys-game/test";

@@ -1,5 +1,5 @@
 import { Bark } from "./bark";
-import { wait } from "./util";
+import { wait } from "../util";
 
 export class DogDoor {
   constructor(
