@@ -34,6 +34,7 @@ export default class Unit {
   }
 
   getWeapons(): Weapon[] {
+    if (!this.weapons) throw Error("Weapons is not initialized!");
     return this.weapons;
   }
 
@@ -43,7 +44,12 @@ export default class Unit {
   }
 
   getProperty(property: string): Object | null {
-    if (!this.properties) return null;
+    if (!this.properties) throw Error("Properties is not initialized!");
+
+    const value = this.properties[property];
+    if (value === undefined)
+      throw Error(`Accessing non-existing property - ${property}`);
+
     return this.properties[property];
   }
 }

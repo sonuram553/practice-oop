@@ -47,9 +47,13 @@ export default class UnitTester {
 
   testNonExitingProperty(unit: Unit, propertyName: string) {
     console.log("\nTesting non-existing property's value...");
-    const outputValue = unit.getProperty(propertyName);
 
-    if (outputValue === undefined) console.log("Test Passed!");
-    else console.log("Test Failed!", outputValue, "didn't match", undefined);
+    try {
+      const outputValue = unit.getProperty(propertyName);
+      console.log("Test Failed - An exception should be thrown");
+    } catch (err) {
+      if (err instanceof Error)
+        console.log("Test Passed with error message:", err.message);
+    }
   }
 }
