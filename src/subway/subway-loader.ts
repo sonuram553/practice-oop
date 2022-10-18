@@ -2,22 +2,24 @@ import Subway from "./subway";
 import { readFile } from "fs/promises";
 
 export default class SubwayLoader {
-  subway: Subway = new Subway([], []);
-
-  async loadFromFile(file: string) {
-    const data = (await readFile("./data.txt")).toString().split("\n");
-    const index = data.findIndex((line) => line === "\n");
-    this.loadStations(data.slice(0, index));
-    this.loadLines(data.slice(index));
-
-    return this.subway;
+  async loadFromFile(file: string): Promise<Subway | undefined> {
+    try {
+      const subway = new Subway([], []);
+      const data = (await readFile("./data.txt")).toString().split("\n");
+      const index = data.findIndex((line) => line === "\n");
+      this.loadStations(subway, data.slice(0, index));
+      this.loadLines(subway, data.slice(index));
+      return subway;
+    } catch (err) {
+      console.error(err);
+    }
   }
 
-  private loadStations(stations: string[]) {
-    stations.forEach((station) => this.subway.addStation(station));
+  private loadStations(subway: Subway, stations: string[]) {
+    stations.forEach((station) => subway.addStation(station));
   }
 
-  private loadLines(lines: string[]) {
+  private loadLines(subway: Subway, lines: string[]) {
     let i = 0;
     let lineName = "";
 
@@ -32,7 +34,7 @@ export default class SubwayLoader {
         i++;
 
         if (lineName && station1Name && station2Name) {
-          this.subway.addConnection(station1Name, station2Name, lineName);
+          subway.addConnection(station1Name, station2Name, lineName);
         }
       }
     }
