@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/sonuram553/practice-oop/issues"
   },
-  "homepage": "https://github.com/sonuram553/practice-oop#readme"
+  "homepage": "https://github.com/sonuram553/practice-oop#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.0"
+  }
 }
