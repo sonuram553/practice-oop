@@ -6,7 +6,7 @@ export default class SubwayLoader {
     try {
       const subway = new Subway([], []);
       const data = (await readFile(file)).toString().split("\n");
-      const index = data.findIndex((line) => line === "\n");
+      const index = data.findIndex((line) => "\r\n".includes(line));
       this.loadStations(subway, data.slice(0, index));
       this.loadLines(subway, data.slice(index));
       return subway;
@@ -24,12 +24,12 @@ export default class SubwayLoader {
     let lineName = "";
 
     while (i + 1 < lines.length) {
-      if (lines[i] === "\n") {
+      if ("\r\n".includes(lines[i])) {
         i++;
-        lineName = lines[i++];
+        lineName = lines[i++].trim();
       } else {
-        const station1Name = lines[i];
-        const station2Name = lines[i + 1];
+        const station1Name = lines[i].trim();
+        const station2Name = lines[i + 1].trim();
 
         i++;
 

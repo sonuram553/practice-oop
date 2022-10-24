@@ -6,6 +6,14 @@ Head First Labs
 Objectville PizzaStore 
 UML Walk 
 XHTML Expressway 
+Choc-O-Holic, Inc. 
+Head First Theater 
+Infinite Circle
+CSS Center 
+OOA&D Oval 
+SimUDuck Lake 
+Web Design Way 
+Head First Lounge 
 
 Booch Line 
 Ajax Rapids 
@@ -18,4 +26,3 @@ Objectville PizzaStore
 Gamma Line 
 OOA&D Oval 
 Head First Lounge 
-OOA&D Oval

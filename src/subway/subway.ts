@@ -39,6 +39,9 @@ export default class Subway {
 
       this.connections.push(new Connection(station1, station2, lineName));
       this.connections.push(new Connection(station2, station1, lineName));
-    } else throw Error("Invalid connection!");
+    } else
+      throw Error(
+        `Invalid connection - stations ${station1Name} or ${station2Name} does not exists!`
+      );
   }
 }
