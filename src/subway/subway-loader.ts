@@ -5,7 +5,7 @@ export default class SubwayLoader {
   async loadFromFile(file: string): Promise<Subway | undefined> {
     try {
       const subway = new Subway([], []);
-      const data = (await readFile("./data.txt")).toString().split("\n");
+      const data = (await readFile(file)).toString().split("\n");
       const index = data.findIndex((line) => line === "\n");
       this.loadStations(subway, data.slice(0, index));
       this.loadLines(subway, data.slice(index));

@@ -5,4 +5,7 @@
 // import "./dog-door/dogDoorSimulator";
 
 // Runs Tests for Gary's Game System
-import "./garys-game/test";
+// import "./garys-game/test";
+
+// Runs Test for Subway
+import "./subway/loader-tester";

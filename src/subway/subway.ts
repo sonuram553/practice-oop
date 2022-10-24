@@ -5,6 +5,7 @@ export default class Subway {
   constructor(private stations: Station[], private connections: Connection[]) {}
 
   addStation(stationName: string) {
+    stationName = stationName.trim();
     if (!this.hasStation(stationName)) {
       this.stations.push(new Station(stationName));
     }
