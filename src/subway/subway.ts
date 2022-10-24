@@ -10,9 +10,24 @@ export default class Subway {
     }
   }
 
-  hasStation(stationName: string) {
+  hasStation(stationName: string): boolean {
     return this.stations.some((station) =>
       station.equals(new Station(stationName))
+    );
+  }
+
+  hasConnection(
+    station1Name: string,
+    station2Name: string,
+    lineName: string
+  ): boolean {
+    const findConnection = new Connection(
+      new Station(station1Name),
+      new Station(station2Name),
+      lineName
+    );
+    return this.connections.some((connection) =>
+      connection.equals(findConnection)
     );
   }
 

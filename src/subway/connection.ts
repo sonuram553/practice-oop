@@ -18,4 +18,14 @@ export default class Connection {
   getLineName(): string {
     return this.lineName;
   }
+
+  equals(connection: Connection): boolean {
+    if (
+      this.station1.equals(connection.station1) &&
+      this.station2.equals(connection.station2) &&
+      this.lineName === connection.lineName
+    )
+      return true;
+    return false;
+  }
 }
